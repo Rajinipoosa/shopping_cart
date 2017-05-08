@@ -49,8 +49,19 @@ public class ShoppingBasketTest {
         shoppingbasket.addItemToCart(item);
         shoppingbasket.addItemToCart( new Item(1,"bread", 5.00, 10 , true));
 
-        assertEquals(175.0,shoppingbasket.getTotalAmount());
+        assertEquals(200.0,shoppingbasket.getTotalAmount());
 
     }
+    @Test
+    public void getTotalAmountforBuyoneGetOneoffTest(){
+        shoppingbasket.addItemToCart(item);
+        shoppingbasket.addItemToCart( new Item(1,"bread", 5.00, 10 , true));
 
-}
+        assertEquals(157.5,shoppingbasket.getTotalAmountforBuyoneGetOneoff());
+    }
+//    @Test
+//    public void getTenPercentDiscountTest(){
+//        shoppingbasket.getTenPercentDiscount();
+//
+//    }
+   }

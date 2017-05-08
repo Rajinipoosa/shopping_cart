@@ -50,21 +50,43 @@ public class ShoppingBasket {
 
 
     public double getTotalAmount() {
-        for(Item itm : cart) {
+        for (Item itm : cart) {
 //            System.out.println(itm);
-            if(itm.checkBuyOneGetOneDiscount() == true && itm.getQuantity() >= 2){
-              double value =  itm.getQuantity()/2;
-                System.out.println(value);
-                totalAmount += itm.getPrice() * value;
 
-            }
-            else
 
             totalAmount += itm.getPrice() * itm.getQuantity();
 
         }
 
-
         return totalAmount;
+
     }
+
+    public double getTotalAmountforBuyoneGetOneoff() {
+        for (Item itm : cart) {
+            if (itm.checkBuyOneGetOneDiscount() == true && itm.getQuantity() >= 2) {
+                double value = itm.getQuantity() / 2;
+
+                totalAmount += itm.getPrice() * value;
+
+
+
+
+            } else
+                totalAmount += itm.getPrice() * itm.getQuantity();
+
+
+        }
+        if(totalAmount  > 20.0){
+            totalAmount = totalAmount - totalAmount * 10/100;
+
+
+        }
+        return totalAmount;
+
+    }
+
+
+
+
 }
