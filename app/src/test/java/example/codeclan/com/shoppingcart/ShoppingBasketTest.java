@@ -48,6 +48,9 @@ public class ShoppingBasketTest {
     public void getTotalAmountTest(){
         shoppingbasket.addItemToCart(item);
         shoppingbasket.addItemToCart( new Item(1,"bread", 5.00, 10 , true));
-        shoppingbasket.getTotalAmount();
+
+        assertEquals(175.0,shoppingbasket.getTotalAmount());
+
     }
+
 }

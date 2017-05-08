@@ -54,9 +54,12 @@ public class ShoppingBasket {
 //            System.out.println(itm);
             if(itm.checkBuyOneGetOneDiscount() == true && itm.getQuantity() >= 2){
               double value =  itm.getQuantity()/2;
-
+                System.out.println(value);
+                totalAmount += itm.getPrice() * value;
 
             }
+            else
+
             totalAmount += itm.getPrice() * itm.getQuantity();
 
         }
