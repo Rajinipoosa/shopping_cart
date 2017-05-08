@@ -18,7 +18,7 @@ public class ItemTest {
 
         @Before
         public void before() {
-            item = new Item(2,"Bread", 5.00, 1, true );
+            item = new Item(2,"Bread", 5.00, 1, true);
 
         }
 
@@ -41,8 +41,10 @@ public class ItemTest {
         }
          @Test
         public void getBuyOneGetOneDiscountFalseTest(){
+             item = new Item(2,"Bread", 5.00, 1, false );
+
             boolean result = item.checkBuyOneGetOneDiscount();
-             assertEquals(false ,result);
+             assertEquals(false,result);
 
         }
          @Test

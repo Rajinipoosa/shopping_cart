@@ -28,7 +28,6 @@ public class ShoppingBasketTest {
    @Test
     public void addItemToCartTest(){
 
-
        assertEquals(1,shoppingbasket.addItemToCart(item));
 
    }
@@ -44,5 +43,11 @@ public class ShoppingBasketTest {
         shoppingbasket.addItemToCart(item);
        assertEquals(0, shoppingbasket.clearItemsFromCart());
 
+    }
+    @Test
+    public void getTotalAmountTest(){
+        shoppingbasket.addItemToCart(item);
+        shoppingbasket.addItemToCart( new Item(1,"bread", 5.00, 10 , true));
+        shoppingbasket.getTotalAmount();
     }
 }

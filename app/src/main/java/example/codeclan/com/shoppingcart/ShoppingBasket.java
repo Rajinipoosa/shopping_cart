@@ -2,6 +2,7 @@ package example.codeclan.com.shoppingcart;
 
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ShoppingBasket {
     private int itemCount;
@@ -11,26 +12,26 @@ public class ShoppingBasket {
     private ArrayList<Item> items;
 
 
-  public ShoppingBasket(Double totalAmount,int itemCount  ) {
-      this.totalAmount = 0.0;
-      itemCount = 0;
+    public ShoppingBasket(Double totalAmount, int itemCount) {
+        this.totalAmount = 0.0;
+        itemCount = 0;
 
-      this.cart = new ArrayList<Item>();
-      this.items =  new ArrayList<Item>();
-  }
-
+        this.cart = new ArrayList<Item>();
+        this.items = new ArrayList<Item>();
+    }
 
 
     public int addItemToCart(Item item) {
         cart.add(item);
 
-        if(item.checkBuyOneGetOneDiscount()==true)
-        {
-            totalAmount += item.getPrice() * item.getQuantity();
-        }
-
+        totalAmount += item.getPrice() * item.getQuantity();
         return cart.size();
+//        if(item.checkBuyOneGetOneDiscount() == true )
+//        {
+//            if()
 
+//            System.out.println(totalAmount);
+//        }
 
     }
 
@@ -39,10 +40,28 @@ public class ShoppingBasket {
         cart.remove(0);
         return cart.size();
     }
-    public int  clearItemsFromCart(){
-             itemCount = cart.size();
+
+    public int clearItemsFromCart() {
+        itemCount = cart.size();
 //        System.out.println(cart.size());
-      cart.clear();
-       return cart.size();
+        cart.clear();
+        return cart.size();
+    }
+
+
+    public double getTotalAmount() {
+        for(Item itm : cart) {
+//            System.out.println(itm);
+            if(itm.checkBuyOneGetOneDiscount() == true && itm.getQuantity() >= 2){
+              double value =  itm.getQuantity()/2;
+
+
+            }
+            totalAmount += itm.getPrice() * itm.getQuantity();
+
+        }
+
+
+        return totalAmount;
     }
 }
